@@ -25,7 +25,7 @@ def WczytajLiczbe(tekst=""):
         try:
             return float(input(tekst))
         except ValueError:
-            print("Błąd, wpisz prawidłową liczbę: ", end="")
+            print("Błąd, wpisz prawidłową liczbę: ")
 
 
 def WczytajInt(tekst=""):
@@ -33,7 +33,7 @@ def WczytajInt(tekst=""):
         try:
             return int(input(tekst))
         except ValueError:
-            print("Błąd, wpisz prawidłową liczbę całkowitą: ", end="")
+            print("Błąd, wpisz prawidłową liczbę całkowitą: ")
 
 
 def Pauza():
@@ -44,7 +44,7 @@ def Kalkulator():
     print("=== KALKULATOR ===")
     a = WczytajLiczbe("Podaj pierwszą liczbę: ")
     b = WczytajLiczbe("Podaj drugą liczbę: ")
-    operacja = input("Wybierz operację (+, -, * lub /): ")
+    operacja = input("Wybierz operację (+, -, * lub /): ").strip()
 
     if operacja == "+":
         print(f"Wynik:  {a + b}")
@@ -67,6 +67,19 @@ def Kalkulator():
 
 def KonwerterTemperatury():
     print("=== KONWERTER (C <-> F) ===")
+    konwersjaZ = input("Jaką temperaturę chcesz skonwertować (C/F)?\n").strip().upper()
+    if konwersjaZ != "C" and konwersjaZ != "F":
+        print("Nie obsługuję takiej operacji!")
+        Pauza()
+        return
+    
+    temperatura = WczytajLiczbe("Podaj temperaturę: ")
+
+    if konwersjaZ == "C":
+        print(f"{temperatura}°C = {(temperatura * 1.8) + 32.0}°F")
+    else:
+        print(f"{temperatura}°F = {(temperatura - 32.0) / 1.8}°C")
+    
     Pauza()
 
 
