@@ -85,7 +85,33 @@ def KonwerterTemperatury():
 
 def ObliczSredniaOcen():
     print("=== OBLICZ ŚREDNIĄ OCEN ===")
+    liczbaOcen = WczytajInt("Ile ocen ma uczeń? ")
+
+    if liczbaOcen <= 0:
+        print("Uczeń nie ma ocen!")
+        Pauza()
+        return
+
+    suma = 0.0
+
+    for i in range(1, liczbaOcen + 1):
+        ocena = WczytajLiczbe(f"Podaj ocenę nr {i} (1-6): ")
+
+        while ocena < 1 or ocena > 6:
+            ocena = WczytajLiczbe("Nieprawidłowa ocena, podaj ponownie: ")
+
+        suma += ocena
+
+    srednia = suma / liczbaOcen
+    print(f"Średnia ucznia to: {srednia:.2f}")
+
+    if srednia >= 3.0:
+        print("Uczeń zdał.")
+    else:
+        print("Uczeń nie zdał.")
+    
     Pauza()
+    
 
 
 if __name__ == "__main__":
