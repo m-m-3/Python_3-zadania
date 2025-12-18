@@ -42,6 +42,26 @@ def Pauza():
 
 def Kalkulator():
     print("=== KALKULATOR ===")
+    a = WczytajLiczbe("Podaj pierwszą liczbę: ")
+    b = WczytajLiczbe("Podaj drugą liczbę: ")
+    operacja = input("Wybierz operację (+, -, * lub /): ")
+
+    if operacja == "+":
+        print(f"Wynik:  {a + b}")
+    elif operacja == "-":
+        print(f"Wynik:  {a - b}")
+    elif operacja == "*":
+        print(f"Wynik:  {a * b}")
+    elif operacja == "/":
+        if b == 0:
+            print("Nie można dzielić przez 0!")
+            Pauza()
+            return
+        print(f"Wynik:  {a / b}")
+    else:
+        print("Nie obsługuję takiej operacji!")
+        Pauza()
+        return
     Pauza()
 
 
